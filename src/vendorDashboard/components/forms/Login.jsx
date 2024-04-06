@@ -28,11 +28,12 @@ const Login = ({showWelcomeHandler}) => {
       const vendorId = data.vendorId;
       console.log("checking for vendorId", vendorId)
       const vendorResponse = await fetch(`${API_URL}/vendor/single-vendor/${vendorId}`)
+      window.location.reload()
       const vendorData = await vendorResponse.json();
       if(vendorResponse.ok){
         const vendorFirmId = vendorData.vendorFirmId;
         const vendorFirmName = vendorData.vendor.firm[0].firmName;
-        console.log("chaecking for firm id:", vendorFirmId);
+        console.log("chacking for firm id:", vendorFirmId);
         localStorage.setItem('firmId', vendorFirmId)
         localStorage.setItem('firmName',vendorFirmName )
         window.location.reload()
